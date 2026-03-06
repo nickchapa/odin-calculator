@@ -1,6 +1,7 @@
 let num1;
 let num2;
 let operator;
+let result;
 
 const display = document.getElementById('display');
 const digits = document.querySelector('#digits');
@@ -18,7 +19,15 @@ digits.addEventListener('click', (e) => {
 
 operators.addEventListener('click', (e) => {
     const operatorClicked = e.target.id;
-    if(num1 != null) operator = operatorClicked;
+    if(
+        num1 != null &&
+        num2 != null &&
+        operator != null
+    )
+    {
+        operate(num1, num2, operator);
+        operator = operatorClicked;
+    }else if(num1 != null) operator = operatorClicked;
 });
 
 clear.addEventListener('click', (e) => {
@@ -30,11 +39,7 @@ clear.addEventListener('click', (e) => {
 
 const equals = document.getElementById('=');
 equals.addEventListener('click', (e) => {
-    let result = operate(num1, num2, operator);
-    display.textContent = result;
-    num1 = result;
-    num2 = null;
-    operator = null;
+    operate(num1, num2, operator);
 })
 
 function add(a, b){
@@ -54,8 +59,13 @@ function divide(a, b){
 }
 
 function operate(a, b, operator){
-    if(operator == '+') return add(a, b);
-    else if (operator == '-') return subtract(a, b);
-    else if (operator == '*') return multiply(a, b);
-    else if (operator == '/') return divide(a, b);
+    if(operator == '+') result = add(a, b);
+    else if (operator == '-') result = subtract(a, b);
+    else if (operator == '*') result = multiply(a, b);
+    else if (operator == '/') result = divide(a, b);
+
+    display.textContent = result;
+    num1 = result;
+    num2 = null;
+    operator = null;
 }
