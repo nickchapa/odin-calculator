@@ -15,7 +15,11 @@ digits.addEventListener('click', (e) => {
 
     display.textContent = digitClicked;
 });
-operators.addEventListener('click', (e) => console.log(e.target));
+
+operators.addEventListener('click', (e) => {
+    const operatorClicked = e.target.id;
+    if(num1 != null) operator = operatorClicked;
+});
 clear.addEventListener('click', (e) => console.log(e.target));
 
 const digit_0 = document.getElementById('0');
