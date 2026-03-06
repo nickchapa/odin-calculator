@@ -7,7 +7,14 @@ const digits = document.querySelector('#digits');
 const operators = document.querySelector('#operators');
 const clear = document.querySelector('#clear');
 
-digits.addEventListener('click', (e) => console.log(e.target));
+digits.addEventListener('click', (e) => {
+    const digitClicked = +e.target.id;
+
+    if(num1 == null || !operator) num1 = digitClicked;
+    else  num2 = digitClicked;
+
+    display.textContent = digitClicked;
+});
 operators.addEventListener('click', (e) => console.log(e.target));
 clear.addEventListener('click', (e) => console.log(e.target));
 
