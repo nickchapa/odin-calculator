@@ -1,3 +1,9 @@
+const digit_0 = document.getElementById('0');
+const digit_1 = document.getElementById('1');
+digit_0.addEventListener('click', (e) => {
+});
+digit_1.addEventListener('click', (e) => console.log('1 button clicked!'));
+
 function add(a, b){
     return a + b;
 }
