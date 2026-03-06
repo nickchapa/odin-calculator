@@ -3,6 +3,9 @@ let num2;
 let operator;
 
 const display = document.getElementById('display');
+const digits = document.querySelector('#digits');
+const operators = document.querySelector('#operators');
+const clear = document.querySelector('#clear');
 
 const digit_0 = document.getElementById('0');
 digit_0.addEventListener('click', (e) => {
