@@ -20,7 +20,13 @@ operators.addEventListener('click', (e) => {
     const operatorClicked = e.target.id;
     if(num1 != null) operator = operatorClicked;
 });
-clear.addEventListener('click', (e) => console.log(e.target));
+
+clear.addEventListener('click', (e) => {
+    num1 = null;
+    num2 = null;
+    operator = null;
+    display.textContent = '0';
+});
 
 const digit_0 = document.getElementById('0');
 digit_0.addEventListener('click', (e) => {
