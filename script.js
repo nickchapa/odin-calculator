@@ -1,3 +1,4 @@
+const display = document.getElementById('display');
 const digit_0 = document.getElementById('0');
 const digit_1 = document.getElementById('1');
 digit_0.addEventListener('click', (e) => {
