@@ -1,3 +1,7 @@
+let num1;
+let num2;
+let operator;
+
 const display = document.getElementById('display');
 
 const digit_0 = document.getElementById('0');
@@ -6,10 +10,6 @@ digit_0.addEventListener('click', (e) => {
 
 const digit_1 = document.getElementById('1');
 digit_1.addEventListener('click', (e) => console.log('1 button clicked!'));
-
-let num1;
-let num2;
-let operator;
 
 function add(a, b){
     return a + b;
