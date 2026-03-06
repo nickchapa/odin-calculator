@@ -18,7 +18,19 @@ digits.addEventListener('click', (e) => {
 
 operators.addEventListener('click', (e) => {
     const operatorClicked = e.target.id;
-    if(num1 != null) operator = operatorClicked;
+    if(
+        num1 != null &&
+        num2 != null &&
+        operator != null
+    )
+    {
+        let result = operate(num1, num2, operator);
+        display.textContent = result;
+        num1 = result;
+        num2 = null;
+        operator = null;
+        operator = operatorClicked;
+    }else if(num1 != null) operator = operatorClicked;
 });
 
 clear.addEventListener('click', (e) => {
