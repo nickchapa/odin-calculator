@@ -4,6 +4,10 @@ digit_0.addEventListener('click', (e) => {
 });
 digit_1.addEventListener('click', (e) => console.log('1 button clicked!'));
 
+let num1;
+let num2;
+let operator;
+
 function add(a, b){
     return a + b;
 }
