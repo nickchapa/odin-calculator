@@ -11,6 +11,11 @@ digit_0.addEventListener('click', (e) => {
 const digit_1 = document.getElementById('1');
 digit_1.addEventListener('click', (e) => console.log('1 button clicked!'));
 
+const equals = document.getElementById('=');
+equals.addEventListener('click', (e) => {
+    
+})
+
 function add(a, b){
     return a + b;
 }
