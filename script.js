@@ -28,27 +28,6 @@ clear.addEventListener('click', (e) => {
     display.textContent = '0';
 });
 
-const digit_0 = document.getElementById('0');
-digit_0.addEventListener('click', (e) => {
-    if(num1 == null || !operator) num1 = 0;
-    else  num2 = 0;
-
-    display.textContent = '0';
-});
-
-const digit_1 = document.getElementById('1');
-digit_1.addEventListener('click', (e) => {
-    if(num1 == null || !operator) num1 = 1;
-    else  num2 = 1;
-
-    display.textContent = '1';
-});
-
-const operator_plus = document.getElementById('+');
-operator_plus.addEventListener('click', (e) => {
-    if(num1 != null) operator = '+';
-})
-
 const equals = document.getElementById('=');
 equals.addEventListener('click', (e) => {
     let result = operate(num1, num2, operator);
