@@ -61,11 +61,15 @@ function divide(a, b){
 }
 
 function operate(a, b, op){
-    console.log(num1, num2, operator);
-    if(op == '+') result = add(a, b);
-    else if (op == '-') result = subtract(a, b);
-    else if (op == '*') result = multiply(a, b);
-    else if (op == '/') result = divide(a, b);
+    if (b != null){
+        if(op == '+') result = add(a, b);
+        else if (op == '-') result = subtract(a, b);
+        else if (op == '*') result = multiply(a, b);
+        else if (op == '/') result = divide(a, b);
+    } else {
+        isError = true;
+        result = 'Error';
+    }
 
     display.textContent = result;
     if(isError) num1 = null;
