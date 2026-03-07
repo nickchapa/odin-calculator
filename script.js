@@ -4,7 +4,7 @@ let operator;
 let result;
 let isError = false;
 
-const display = document.getElementById('display');
+const display = document.querySelector('#display');
 const digits = document.querySelector('#digits');
 const operators = document.querySelector('#operators');
 const clear = document.querySelector('#clear');
