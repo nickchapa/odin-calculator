@@ -43,6 +43,7 @@ clear.addEventListener('click', (e) => {
 const equals = document.getElementById('=');
 equals.addEventListener('click', (e) => {
     operate(num1, num2, operator);
+    fullClear();
 })
 
 function add(a, b){
