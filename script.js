@@ -12,7 +12,8 @@ const clear = document.querySelector('#clear');
 digits.addEventListener('click', (e) => {
     const digitClicked = +e.target.id;
 
-    if(num1 == null || !operator) num1 = digitClicked;
+    if (num1 == null) num1 = digitClicked;
+    else if (num1 != null && operator == null) num1 = digitClicked;
     else  num2 = digitClicked;
 
     display.textContent = digitClicked;
