@@ -81,6 +81,7 @@ function operate(a, b, op){
     else num1 = result;
     num2 = null;
     operator = null;
+    result = null;
     isError = false;
 }
 
