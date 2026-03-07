@@ -59,11 +59,11 @@ function divide(a, b){
     } else return a / b;
 }
 
-function operate(a, b, operator){
-    if(operator == '+') result = add(a, b);
-    else if (operator == '-') result = subtract(a, b);
-    else if (operator == '*') result = multiply(a, b);
-    else if (operator == '/') result = divide(a, b);
+function operate(a, b, op){
+    if(op == '+') result = add(a, b);
+    else if (op == '-') result = subtract(a, b);
+    else if (op == '*') result = multiply(a, b);
+    else if (op == '/') result = divide(a, b);
 
     display.textContent = result;
     if(isError) num1 = null;
