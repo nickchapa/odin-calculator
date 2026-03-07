@@ -93,5 +93,10 @@ function fullClear(){
 }
 
 function displayOperation(){
-    display.textContent = `${num1} ${operator} ${num2} = ${result}`;
+    display.textContent = `
+    ${num1 != null ? num1 : ""}
+    ${operator != null ? operator : ""}
+    ${num2 != null ? num2 : ""} = 
+    ${result != null ? result : ""}
+    `;
 }
