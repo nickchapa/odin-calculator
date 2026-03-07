@@ -2,6 +2,7 @@ let num1;
 let num2;
 let operator;
 let result;
+let isError = false;
 
 const display = document.getElementById('display');
 const digits = document.querySelector('#digits');
@@ -52,7 +53,10 @@ function multiply(a, b){
 }
 
 function divide(a, b){
-    return a / b;
+    if (b === 0){
+        isError = true;
+        return "Error";
+    } else return a / b;
 }
 
 function operate(a, b, operator){
@@ -62,7 +66,8 @@ function operate(a, b, operator){
     else if (operator == '/') result = divide(a, b);
 
     display.textContent = result;
-    num1 = result;
+    if(isError) num1 = null;
+    else num1 = result;
     num2 = null;
     operator = null;
 }
