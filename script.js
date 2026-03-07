@@ -68,15 +68,11 @@ function divide(a, b){
 function operate(a, b, op){
     a = +a;
     b = +b;
-    if (b != null){
-        if(op == '+') result = add(a, b);
-        else if (op == '-') result = subtract(a, b);
-        else if (op == '*') result = multiply(a, b);
-        else if (op == '/') result = divide(a, b);
-    } else {
-        isError = true;
-        result = 'Error';
-    }
+
+    if(op == '+') result = add(a, b);
+    else if (op == '-') result = subtract(a, b);
+    else if (op == '*') result = multiply(a, b);
+    else if (op == '/') result = divide(a, b);
 
     displayOperation();
     if(isError) num1 = null;
