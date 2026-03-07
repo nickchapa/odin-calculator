@@ -61,6 +61,7 @@ function divide(a, b){
 }
 
 function operate(a, b, op){
+    console.log(num1, num2, operator);
     if(op == '+') result = add(a, b);
     else if (op == '-') result = subtract(a, b);
     else if (op == '*') result = multiply(a, b);
@@ -71,6 +72,7 @@ function operate(a, b, op){
     else num1 = result;
     num2 = null;
     operator = null;
+    isError = false;
 }
 
 function fullClear(){
