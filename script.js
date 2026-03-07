@@ -37,6 +37,7 @@ operators.addEventListener('click', (e) => {
 
 clear.addEventListener('click', (e) => {
     fullClear();
+    display.textContent = '0';
 });
 
 const equals = document.getElementById('=');
@@ -79,17 +80,15 @@ function operate(a, b, op){
     displayOperation();
     if(isError) num1 = null;
     else num1 = result;
-    num2 = null;
-    operator = null;
-    result = null;
-    isError = false;
+    fullClear();
 }
 
 function fullClear(){
     num1 = null;
     num2 = null;
     operator = null;
-    display.textContent = '0';
+    result = null;
+    isError = false;
 }
 
 function displayOperation(){
