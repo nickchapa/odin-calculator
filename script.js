@@ -8,6 +8,7 @@ const display = document.getElementById('display');
 const digits = document.querySelector('#digits');
 const operators = document.querySelector('#operators');
 const clear = document.querySelector('#clear');
+const equals = document.getElementById('=');
 
 digits.addEventListener('click', (e) => {
     const digitClicked = e.target.id;
@@ -41,7 +42,6 @@ clear.addEventListener('click', (e) => {
     display.textContent = '0';
 });
 
-const equals = document.getElementById('=');
 equals.addEventListener('click', (e) => {
     operate(num1, num2, operator);
     fullClear();
