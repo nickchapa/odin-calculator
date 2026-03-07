@@ -11,7 +11,7 @@ const clear = document.querySelector('#clear');
 const equals = document.getElementById('=');
 
 digits.addEventListener('click', (e) => {
-    const digitClicked = e.target.id;
+    const digitClicked = e.target.textContent;
 
     if (num1 == null) num1 = digitClicked;
     else if (num1 != null && operator == null) num1 += digitClicked;
@@ -22,7 +22,7 @@ digits.addEventListener('click', (e) => {
 });
 
 operators.addEventListener('click', (e) => {
-    const operatorClicked = e.target.id;
+    const operatorClicked = e.target.textContent;
     if (num1 == null) display.textContent = "Error";
     else if(
         num1 != null &&
