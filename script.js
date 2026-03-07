@@ -22,7 +22,8 @@ digits.addEventListener('click', (e) => {
 
 operators.addEventListener('click', (e) => {
     const operatorClicked = e.target.id;
-    if(
+    if (num1 == null) display.textContent = "Error";
+    else if(
         num1 != null &&
         num2 != null &&
         operator != null
