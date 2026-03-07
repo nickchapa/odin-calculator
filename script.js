@@ -31,10 +31,7 @@ operators.addEventListener('click', (e) => {
 });
 
 clear.addEventListener('click', (e) => {
-    num1 = null;
-    num2 = null;
-    operator = null;
-    display.textContent = '0';
+    fullClear();
 });
 
 const equals = document.getElementById('=');
@@ -68,4 +65,11 @@ function operate(a, b, operator){
     num1 = result;
     num2 = null;
     operator = null;
+}
+
+function fullClear(){
+    num1 = null;
+    num2 = null;
+    operator = null;
+    display.textContent = '0';
 }
