@@ -17,7 +17,7 @@ digits.addEventListener('click', (e) => {
     else if (num2 == null) num2 = digitClicked;
     else if (num2 != null) num2 += digitClicked;
 
-    display.textContent = digitClicked;
+    displayOperation();
 });
 
 operators.addEventListener('click', (e) => {
@@ -31,6 +31,8 @@ operators.addEventListener('click', (e) => {
         operate(num1, num2, operator);
         operator = operatorClicked;
     }else if(num1 != null) operator = operatorClicked;
+
+    displayOperation();
 });
 
 clear.addEventListener('click', (e) => {
@@ -74,7 +76,7 @@ function operate(a, b, op){
         result = 'Error';
     }
 
-    display.textContent = result;
+    displayOperation();
     if(isError) num1 = null;
     else num1 = result;
     num2 = null;
@@ -87,4 +89,8 @@ function fullClear(){
     num2 = null;
     operator = null;
     display.textContent = '0';
+}
+
+function displayOperation(){
+    display.textContent = `${num1} ${operator} ${num2} = ${result}`;
 }
