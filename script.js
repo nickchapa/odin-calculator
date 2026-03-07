@@ -8,7 +8,7 @@ const display = document.getElementById('display');
 const digits = document.querySelector('#digits');
 const operators = document.querySelector('#operators');
 const clear = document.querySelector('#clear');
-const equals = document.getElementById('=');
+const equals = document.querySelector('#equals');
 
 digits.addEventListener('click', (e) => {
     const digitClicked = e.target.textContent;
