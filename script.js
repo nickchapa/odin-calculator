@@ -10,7 +10,7 @@ const operators = document.querySelector('#operators');
 const clear = document.querySelector('#clear');
 
 digits.addEventListener('click', (e) => {
-    const digitClicked = +e.target.id;
+    const digitClicked = e.target.id;
 
     if (num1 == null) num1 = digitClicked;
     else if (num1 != null && operator == null) num1 = digitClicked;
@@ -61,6 +61,8 @@ function divide(a, b){
 }
 
 function operate(a, b, op){
+    a = +a;
+    b = +b;
     if (b != null){
         if(op == '+') result = add(a, b);
         else if (op == '-') result = subtract(a, b);
