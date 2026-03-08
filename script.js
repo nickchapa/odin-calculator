@@ -31,10 +31,14 @@ operators.addEventListener('click', (e) => {
     )
     {
         operate(num1, num2, operator);
-        operator = operatorClicked;
+        if(result != 'Error'){
+            operator = operatorClicked;
+            result = null;
+        }
     }else if(num1 != null) operator = operatorClicked;
 
     displayOperation();
+    if(result == 'Error') fullClear();
 });
 
 clear.addEventListener('click', (e) => {
@@ -76,13 +80,14 @@ function operate(a, b, op){
     else if (op == '/') result = divide(a, b);
 
     displayOperation();
-    if(isError) num1 = null;
+    if(result == 'Error') num1 = null;
     else num1 = result;
-    fullClear(true);
+    num2 = null;
+    operator = null;
 }
 
-function fullClear(holdnum1 = false){
-    if(!holdnum1) num1 = null;
+function fullClear(){
+    num1 = null;
     num2 = null;
     operator = null;
     result = null;
