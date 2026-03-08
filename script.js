@@ -52,6 +52,8 @@ equals.addEventListener('click', (e) => {
     fullClear();
 })
 
+backspace.addEventListener('click', (e) => console.log('backspace clicked'));
+
 function add(a, b){
     return a + b;
 }
