@@ -52,7 +52,28 @@ equals.addEventListener('click', (e) => {
     fullClear();
 })
 
-backspace.addEventListener('click', (e) => console.log('backspace clicked'));
+backspace.addEventListener('click', (e) => {
+    if (
+        num1 != null &&
+        operator != null &&
+        num2 != null
+    ){
+        num2 = null;
+        displayOperation();
+    } else if (
+        num1 != null &&
+        operator != null
+    ){
+        operator = null;
+        displayOperation();
+    } else if (
+        num1 != null
+    ){
+        num1 = null;
+        displayOperation();
+    }
+    console.log(num1, num2, operator, result);
+});
 
 function add(a, b){
     return a + b;
