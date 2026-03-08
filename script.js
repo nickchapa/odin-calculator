@@ -1,5 +1,5 @@
-let num1;
-let num2;
+let num1 = [];
+let num2 = [];
 let operator;
 let result;
 let isError = false;
@@ -12,22 +12,22 @@ const equals = document.querySelector('#equals');
 const backspace = document.querySelector('#backspace');
 
 digits.addEventListener('click', (e) => {
-    const digitClicked = e.target.textContent;
+    const digitClicked = +e.target.textContent;
 
-    if (num1 == null) num1 = digitClicked;
-    else if (num1 != null && operator == null) num1 += digitClicked;
-    else if (num2 == null) num2 = digitClicked;
-    else if (num2 != null) num2 += digitClicked;
+    if (num1.length === 0) num1.push(digitClicked);
+    else if (num1.length && operator == null) num1.push(digitClicked);
+    else if (num2.length === 0) num2.push(digitClicked);
+    else if (num2.length) num2.push(digitClicked);
 
     displayOperation();
 });
 
 operators.addEventListener('click', (e) => {
     const operatorClicked = e.target.textContent;
-    if (num1 == null) result = "Error";
+    if (num1.length === 0) result = 'Error';
     else if(
-        num1 != null &&
-        num2 != null &&
+        num1.length &&
+        num2.length &&
         operator != null
     )
     {
@@ -36,9 +36,9 @@ operators.addEventListener('click', (e) => {
             operator = operatorClicked;
             result = null;
         }
-    }else if(num1 != null) operator = operatorClicked;
+    }else if(num1.length) operator = operatorClicked;
 
-    displayOperation();
+    if(result != 'Error') displayOperation();
     if(result == 'Error') fullClear();
 });
 
@@ -54,22 +54,22 @@ equals.addEventListener('click', (e) => {
 
 backspace.addEventListener('click', (e) => {
     if (
-        num1 != null &&
+        num1.length &&
         operator != null &&
-        num2 != null
+        num2.length
     ){
-        num2 = null;
+        num2.pop();
         displayOperation();
     } else if (
-        num1 != null &&
+        num1.length &&
         operator != null
     ){
         operator = null;
         displayOperation();
     } else if (
-        num1 != null
+        num1.length
     ){
-        num1 = null;
+        num1.pop();
         displayOperation();
     }
     console.log(num1, num2, operator, result);
@@ -95,8 +95,8 @@ function divide(a, b){
 }
 
 function operate(a, b, op){
-    a = +a;
-    b = +b;
+    a = +a.join("");
+    b = +b.join("");
 
     if(op == '+') result = add(a, b);
     else if (op == '-') result = subtract(a, b);
@@ -104,15 +104,15 @@ function operate(a, b, op){
     else if (op == '/') result = divide(a, b);
 
     displayOperation();
-    if(result == 'Error') num1 = null;
-    else num1 = result;
-    num2 = null;
+    if(result === 'Error') num1 = [];
+    else num1 = [result];
+    num2 = [];
     operator = null;
 }
 
 function fullClear(){
-    num1 = null;
-    num2 = null;
+    num1 = [];
+    num2 = [];
     operator = null;
     result = null;
     isError = false;
@@ -120,9 +120,9 @@ function fullClear(){
 
 function displayOperation(){
     display.textContent = `
-    ${num1 != null ? num1 : ""}
+    ${num1.length ? +num1.join("") : ""}
     ${operator != null ? operator : ""}
-    ${num2 != null ? num2 : ""} = 
+    ${num2.length ? +num2.join("") : ""} = 
     ${result != null ? result : ""}
     `;
 }
