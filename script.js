@@ -85,8 +85,8 @@ function operate(a, b, op){
     fullClear(true);
 }
 
-function fullClear(holdnum1 = false){
-    if(!holdnum1) num1 = null;
+function fullClear(){
+    num1 = null;
     num2 = null;
     operator = null;
     result = null;
