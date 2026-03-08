@@ -82,7 +82,8 @@ function operate(a, b, op){
     displayOperation();
     if(result == 'Error') num1 = null;
     else num1 = result;
-    fullClear(true);
+    num2 = null;
+    operator = null;
 }
 
 function fullClear(){
