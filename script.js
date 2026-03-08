@@ -80,7 +80,7 @@ function operate(a, b, op){
     else if (op == '/') result = divide(a, b);
 
     displayOperation();
-    if(isError) num1 = null;
+    if(result == 'Error') num1 = null;
     else num1 = result;
     fullClear(true);
 }
