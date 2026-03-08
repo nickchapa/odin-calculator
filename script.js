@@ -9,6 +9,7 @@ const digits = document.querySelector('#digits');
 const operators = document.querySelector('#operators');
 const clear = document.querySelector('#clear');
 const equals = document.querySelector('#equals');
+const backspace = document.querySelector('#backspace');
 
 digits.addEventListener('click', (e) => {
     const digitClicked = e.target.textContent;
