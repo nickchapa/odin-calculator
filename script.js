@@ -31,10 +31,14 @@ operators.addEventListener('click', (e) => {
     )
     {
         operate(num1, num2, operator);
-        operator = operatorClicked;
+        if(result != 'Error'){
+            operator = operatorClicked;
+            result = null;
+        }
     }else if(num1 != null) operator = operatorClicked;
 
     displayOperation();
+    if(result == 'Error') fullClear();
 });
 
 clear.addEventListener('click', (e) => {
