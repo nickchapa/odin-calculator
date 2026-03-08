@@ -2,7 +2,6 @@ let num1 = [];
 let num2 = [];
 let operator;
 let result;
-let isError = false;
 
 const display = document.querySelector('#display');
 const digits = document.querySelector('#digits');
@@ -89,7 +88,6 @@ function multiply(a, b){
 
 function divide(a, b){
     if (b === 0){
-        isError = true;
         return "Error";
     } else return a / b;
 }
@@ -115,7 +113,6 @@ function fullClear(){
     num2 = [];
     operator = null;
     result = null;
-    isError = false;
 }
 
 function displayOperation(){
