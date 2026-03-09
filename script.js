@@ -2,6 +2,7 @@ let num1 = [];
 let num2 = [];
 let operator;
 let result;
+const validOperators = ['+', '-', '*', '/'];
 
 const display = document.querySelector('#display');
 const digits = document.querySelector('#digits');
@@ -24,22 +25,24 @@ digits.addEventListener('click', (e) => {
 
 operators.addEventListener('click', (e) => {
     const operatorClicked = e.target.textContent;
-    if (num1.length === 0) result = 'Error';
-    else if(
-        num1.length &&
-        num2.length &&
-        operator != null
-    )
-    {
-        operate(num1, num2, operator);
-        if(result != 'Error'){
-            operator = operatorClicked;
-            result = null;
+    if (validOperators.includes(operatorClicked)){
+        if (num1.length === 0) result = 'Error';
+        else if (
+            num1.length &&
+            num2.length &&
+            operator != null
+        ){
+            operate(num1, num2, operator);
+            if (result != 'Error') {
+                    operator = operatorClicked;
+                    result = null;
+            }
         }
-    }else if(num1.length) operator = operatorClicked;
+        else if (num1.length) operator = operatorClicked;
 
-    if(result != 'Error') displayOperation();
-    if(result == 'Error') fullClear();
+        if (result != 'Error') displayOperation();
+        if (result == 'Error') fullClear();
+    }
 });
 
 clear.addEventListener('click', (e) => {
