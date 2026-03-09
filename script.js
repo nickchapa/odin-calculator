@@ -2,7 +2,6 @@ let num1 = [];
 let num2 = [];
 let operator;
 let result;
-let isError = false;
 
 const display = document.querySelector('#display');
 const digits = document.querySelector('#digits');
@@ -12,34 +11,40 @@ const equals = document.querySelector('#equals');
 const backspace = document.querySelector('#backspace');
 
 digits.addEventListener('click', (e) => {
-    const digitClicked = +e.target.textContent;
+    const element = e.target.closest('.digit');
+    let digitClicked;
+    element ? digitClicked = element.textContent : digitClicked = null;
 
-    if (num1.length === 0) num1.push(digitClicked);
-    else if (num1.length && operator == null) num1.push(digitClicked);
-    else if (num2.length === 0) num2.push(digitClicked);
-    else if (num2.length) num2.push(digitClicked);
-
-    displayOperation();
+    if(digitClicked != null){
+        if (num1.length === 0) num1.push(digitClicked);
+        else if (num1.length && operator == null) num1.push(digitClicked);
+        else if (num2.length === 0) num2.push(digitClicked);
+        else if (num2.length) num2.push(digitClicked);
+        displayOperation();
+    }
 });
 
 operators.addEventListener('click', (e) => {
-    const operatorClicked = e.target.textContent;
+    const element = e.target.closest('.operator');
+    let operatorClicked;
+    element ? operatorClicked = element.textContent : operatorClicked = null;
+
     if (num1.length === 0) result = 'Error';
-    else if(
+    else if (
         num1.length &&
         num2.length &&
         operator != null
-    )
-    {
+    ){
         operate(num1, num2, operator);
-        if(result != 'Error'){
-            operator = operatorClicked;
-            result = null;
+        if (result != 'Error') {
+                operator = operatorClicked;
+                result = null;
         }
-    }else if(num1.length) operator = operatorClicked;
+    }
+    else if (num1.length) operator = operatorClicked;
 
-    if(result != 'Error') displayOperation();
-    if(result == 'Error') fullClear();
+    if (result != 'Error') displayOperation();
+    if (result == 'Error') fullClear();
 });
 
 clear.addEventListener('click', (e) => {
@@ -89,7 +94,6 @@ function multiply(a, b){
 
 function divide(a, b){
     if (b === 0){
-        isError = true;
         return "Error";
     } else return a / b;
 }
@@ -115,7 +119,6 @@ function fullClear(){
     num2 = [];
     operator = null;
     result = null;
-    isError = false;
 }
 
 function displayOperation(){
