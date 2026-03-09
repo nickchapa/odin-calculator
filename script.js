@@ -2,7 +2,6 @@ let num1 = [];
 let num2 = [];
 let operator;
 let result;
-const validOperators = ['+', '-', '*', '/'];
 
 const display = document.querySelector('#display');
 const digits = document.querySelector('#digits');
@@ -12,9 +11,11 @@ const equals = document.querySelector('#equals');
 const backspace = document.querySelector('#backspace');
 
 digits.addEventListener('click', (e) => {
-    const digitClicked = +e.target.textContent;
+    const element = e.target.closest('.digit');
+    let digitClicked;
+    element ? digitClicked = element.textContent : digitClicked = null;
 
-    if(!isNaN(digitClicked)){
+    if(digitClicked != null){
         if (num1.length === 0) num1.push(digitClicked);
         else if (num1.length && operator == null) num1.push(digitClicked);
         else if (num2.length === 0) num2.push(digitClicked);
@@ -24,25 +25,26 @@ digits.addEventListener('click', (e) => {
 });
 
 operators.addEventListener('click', (e) => {
-    const operatorClicked = e.target.textContent;
-    if (validOperators.includes(operatorClicked)){
-        if (num1.length === 0) result = 'Error';
-        else if (
-            num1.length &&
-            num2.length &&
-            operator != null
-        ){
-            operate(num1, num2, operator);
-            if (result != 'Error') {
-                    operator = operatorClicked;
-                    result = null;
-            }
-        }
-        else if (num1.length) operator = operatorClicked;
+    const element = e.target.closest('.operator');
+    let operatorClicked;
+    element ? operatorClicked = element.textContent : operatorClicked = null;
 
-        if (result != 'Error') displayOperation();
-        if (result == 'Error') fullClear();
+    if (num1.length === 0) result = 'Error';
+    else if (
+        num1.length &&
+        num2.length &&
+        operator != null
+    ){
+        operate(num1, num2, operator);
+        if (result != 'Error') {
+                operator = operatorClicked;
+                result = null;
+        }
     }
+    else if (num1.length) operator = operatorClicked;
+
+    if (result != 'Error') displayOperation();
+    if (result == 'Error') fullClear();
 });
 
 clear.addEventListener('click', (e) => {
