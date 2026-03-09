@@ -13,12 +13,13 @@ const backspace = document.querySelector('#backspace');
 digits.addEventListener('click', (e) => {
     const digitClicked = +e.target.textContent;
 
-    if (num1.length === 0) num1.push(digitClicked);
-    else if (num1.length && operator == null) num1.push(digitClicked);
-    else if (num2.length === 0) num2.push(digitClicked);
-    else if (num2.length) num2.push(digitClicked);
-
-    displayOperation();
+    if(!isNaN(digitClicked)){
+        if (num1.length === 0) num1.push(digitClicked);
+        else if (num1.length && operator == null) num1.push(digitClicked);
+        else if (num2.length === 0) num2.push(digitClicked);
+        else if (num2.length) num2.push(digitClicked);
+        displayOperation();
+    }
 });
 
 operators.addEventListener('click', (e) => {
