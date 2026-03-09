@@ -134,9 +134,9 @@ function fullClear(){
 
 function displayOperation(){
     display.textContent = `
-    ${num1.length ? +num1.join("") : ""}
+    ${num1.length ? num1.join("") : ""}
     ${operator != null ? operator : ""}
-    ${num2.length ? +num2.join("") : ""} = 
+    ${num2.length ? num2.join("") : ""} = 
     ${result != null ? result : ""}
     `;
 }
