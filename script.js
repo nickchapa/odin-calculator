@@ -107,6 +107,7 @@ function operate(a, b, op){
     else if (op == '*') result = multiply(a, b);
     else if (op == '/') result = divide(a, b);
 
+    result = result.toFixed(2);
     displayOperation();
     if(result === 'Error') num1 = [];
     else num1 = [result];
