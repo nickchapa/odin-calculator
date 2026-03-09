@@ -5,6 +5,7 @@ let result;
 
 const display = document.querySelector('#display');
 const digits = document.querySelector('#digits');
+const decimal = document.querySelector('#decimal');
 const operators = document.querySelector('#operators');
 const clear = document.querySelector('#clear');
 const equals = document.querySelector('#equals');
@@ -23,6 +24,15 @@ digits.addEventListener('click', (e) => {
         displayOperation();
     }
 });
+
+decimal.addEventListener('click', (e) => {    
+    if (num2.length !== 0 && !num2.includes('.'))
+        num2.push('.');
+    else if (num2.length === 0 && num1.length !==0 && !num1.includes('.'))
+        num1.push('.');
+
+    displayOperation();
+})
 
 operators.addEventListener('click', (e) => {
     const element = e.target.closest('.operator');
@@ -107,6 +117,7 @@ function operate(a, b, op){
     else if (op == '*') result = multiply(a, b);
     else if (op == '/') result = divide(a, b);
 
+    result = result.toFixed(2);
     displayOperation();
     if(result === 'Error') num1 = [];
     else num1 = [result];
@@ -123,9 +134,9 @@ function fullClear(){
 
 function displayOperation(){
     display.textContent = `
-    ${num1.length ? +num1.join("") : ""}
+    ${num1.length ? num1.join("") : ""}
     ${operator != null ? operator : ""}
-    ${num2.length ? +num2.join("") : ""} = 
+    ${num2.length ? num2.join("") : ""} = 
     ${result != null ? result : ""}
     `;
 }
