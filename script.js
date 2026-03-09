@@ -11,6 +11,10 @@ const clear = document.querySelector('#clear');
 const equals = document.querySelector('#equals');
 const backspace = document.querySelector('#backspace');
 
+window.addEventListener('keydown', (e) => {
+    console.log(e.key);
+})
+
 digits.addEventListener('click', (e) => {
     const element = e.target.closest('.digit');
     let digitClicked;
