@@ -5,6 +5,7 @@ let result;
 
 const display = document.querySelector('#display');
 const digits = document.querySelector('#digits');
+const decimal = document.querySelector('#decimal');
 const operators = document.querySelector('#operators');
 const clear = document.querySelector('#clear');
 const equals = document.querySelector('#equals');
