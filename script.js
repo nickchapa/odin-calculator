@@ -25,6 +25,15 @@ digits.addEventListener('click', (e) => {
     }
 });
 
+decimal.addEventListener('click', (e) => {    
+    if (num2.length !== 0 && !num2.includes('.'))
+        num2.push('.');
+    else if (num2.length === 0 && num1.length !==0 && !num1.includes('.'))
+        num1.push('.');
+
+    displayOperation();
+})
+
 operators.addEventListener('click', (e) => {
     const element = e.target.closest('.operator');
     let operatorClicked;
