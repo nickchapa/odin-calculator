@@ -23,7 +23,7 @@ window.addEventListener('keydown', (e) => {
     else if (operatorArray.includes(element)) operatorEvent(element);
     else if (element == 'c') clearEvent();
     else if (element == '=') equalsEvent();
-    else if (element == 'Backspace') console.log(element); 
+    else if (element == 'Backspace') backspaceEvent();
 })
 
 digits.addEventListener('click', (e) => {
@@ -54,26 +54,7 @@ equals.addEventListener('click', (e) => {
 })
 
 backspace.addEventListener('click', (e) => {
-    if (
-        num1.length &&
-        operator != null &&
-        num2.length
-    ){
-        num2.pop();
-        displayOperation();
-    } else if (
-        num1.length &&
-        operator != null
-    ){
-        operator = null;
-        displayOperation();
-    } else if (
-        num1.length
-    ){
-        num1.pop();
-        displayOperation();
-    }
-    console.log(num1, num2, operator, result);
+    backspaceEvent();
 });
 
 function add(a, b){
@@ -175,4 +156,26 @@ function clearEvent(){
 function equalsEvent(){
     operate(num1, num2, operator);
     fullClear();
+}
+
+function backspaceEvent(){
+    if (
+        num1.length &&
+        operator != null &&
+        num2.length
+    ){
+        num2.pop();
+        displayOperation();
+    } else if (
+        num1.length &&
+        operator != null
+    ){
+        operator = null;
+        displayOperation();
+    } else if (
+        num1.length
+    ){
+        num1.pop();
+        displayOperation();
+    }
 }
