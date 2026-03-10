@@ -84,7 +84,9 @@ function operate(a, b, op){
     else if (op == '/') result = divide(a, b);
 
     result == typeof Number? result.toFixed(2) : result;
-    displayOperation();
+
+    if(!daisuki(a, b)) displayOperation();
+
     if(result === 'Error') num1 = [];
     else num1 = [result];
     num2 = [];
@@ -176,5 +178,52 @@ function backspaceEvent(){
     ){
         num1.pop();
         displayOperation();
+    }
+}
+
+function daisuki(a, b){
+    num1Span = document.createElement('span');
+    num2Span = document.createElement('span');
+    plusSpan = document.createElement('span');
+    equalsSpan = document.createElement('span');
+    resultSpan = document.createElement('span');
+
+    display.textContent = '';
+
+    if (a == 12291){
+        num1Span.style.color = 'blue';
+        num1Span.textContent = '12291';
+        display.append(num1Span);
+    } else if (a == 12094){
+        num1Span.style.color = 'pink';
+        num1Span.textContent = '12094';
+        display.append(num1Span);
+    }
+
+    plusSpan.textContent = ' + ';
+    display.append(plusSpan);
+
+    if (b == 12094){
+        num2Span.style.color = 'pink';
+        num2Span.textContent = '12094';
+        display.append(num2Span);
+    } else if (b == 12291){
+        num2Span.style.color = 'blue';
+        num2Span.textContent = '12291';
+        display.append(num2Span);
+    }
+
+    equalsSpan.textContent = ' = ';
+    display.append(equalsSpan);
+    
+    if (a == 12291 || a == 12094) {
+        if (b == 12291 || b == 12094)
+        {
+            result = '<3';
+            resultSpan.style.color = 'red';
+            resultSpan.textContent = result;
+            display.append(resultSpan);
+            return true;
+        }
     }
 }

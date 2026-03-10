@@ -5,3 +5,7 @@
 #display {
     border: solid 1px black;
 }
+
+span {
+    padding: 0;
+}
