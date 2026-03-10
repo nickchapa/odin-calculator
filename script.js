@@ -12,7 +12,11 @@ const equals = document.querySelector('#equals');
 const backspace = document.querySelector('#backspace');
 
 window.addEventListener('keydown', (e) => {
-    console.log(e.key);
+    const element = e.key;
+    const digitArray = ['0','1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    if (digitArray.includes(element)) {
+        console.log('digit key clicked!');
+    }
 })
 
 digits.addEventListener('click', (e) => {
