@@ -20,9 +20,7 @@ window.addEventListener('keydown', (e) => {
 
     if (digitArray.includes(element)) digitEvent(element);
     else if (element == '.') decimalEvent();
-    else if (operatorArray.includes(element)){
-        console.log(element);
-    }
+    else if (operatorArray.includes(element)) operatorEvent(element);
     else if (element == '=') console.log(element);
     else if (element == 'c') console.log(element);
     else if (element == 'Backspace') console.log(element); 
@@ -44,22 +42,7 @@ operators.addEventListener('click', (e) => {
     let operatorClicked;
     element ? operatorClicked = element.textContent : operatorClicked = null;
 
-    if (num1.length === 0) result = 'Error';
-    else if (
-        num1.length &&
-        num2.length &&
-        operator != null
-    ){
-        operate(num1, num2, operator);
-        if (result != 'Error') {
-                operator = operatorClicked;
-                result = null;
-        }
-    }
-    else if (num1.length) operator = operatorClicked;
-
-    if (result != 'Error') displayOperation();
-    if (result == 'Error') fullClear();
+    operatorEvent(operatorInput);
 });
 
 clear.addEventListener('click', (e) => {
@@ -165,4 +148,23 @@ function decimalEvent(){
         num1.push('.');
 
     displayOperation();
+}
+
+function operatorEvent(operatorInput){
+    if (num1.length === 0) result = 'Error';
+    else if (
+        num1.length &&
+        num2.length &&
+        operator != null
+    ){
+        operate(num1, num2, operator);
+        if (result != 'Error') {
+                operator = operatorInput;
+                result = null;
+        }
+    }
+    else if (num1.length) operator = operatorInput;
+
+    if (result != 'Error') displayOperation();
+    if (result == 'Error') fullClear();
 }
