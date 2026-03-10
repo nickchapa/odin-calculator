@@ -23,9 +23,9 @@ window.addEventListener('keydown', (e) => {
     else if (operatorArray.includes(element)){
         console.log(element);
     }
-    // equals
-    // clear. use 'c' for clear?
-    // backspace
+    else if (element == '=') console.log(element);
+    else if (element == 'c') console.log(element);
+    else if (element == 'Backspace') console.log(element); 
 })
 
 digits.addEventListener('click', (e) => {
