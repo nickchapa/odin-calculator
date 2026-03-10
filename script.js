@@ -41,8 +41,7 @@ operators.addEventListener('click', (e) => {
     const element = e.target.closest('.operator');
     let operatorClicked;
     element ? operatorClicked = element.textContent : operatorClicked = null;
-
-    operatorEvent(operatorInput);
+    operatorEvent(operatorClicked);
 });
 
 clear.addEventListener('click', (e) => {
