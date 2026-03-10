@@ -14,12 +14,15 @@ const backspace = document.querySelector('#backspace');
 window.addEventListener('keydown', (e) => {
     const element = e.key;
     const digitArray = ['0','1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    const operatorArray = ['+', '-', '*', '/'];
 
     if (digitArray.includes(element)) {
         console.log('digit key clicked!');
-    } else if (element == '.') console.log('decimal clicked');
-    
-    // operator
+    }
+    else if (element == '.') console.log('decimal clicked');
+    else if (operatorArray.includes(element)){
+        console.log(element);
+    }
     // equals
     // clear. use 'c' for clear?
     // backspace
