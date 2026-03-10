@@ -21,8 +21,8 @@ window.addEventListener('keydown', (e) => {
     if (digitArray.includes(element)) digitEvent(element);
     else if (element == '.') decimalEvent();
     else if (operatorArray.includes(element)) operatorEvent(element);
+    else if (element == 'c') clearEvent();
     else if (element == '=') console.log(element);
-    else if (element == 'c') console.log(element);
     else if (element == 'Backspace') console.log(element); 
 })
 
@@ -46,8 +46,7 @@ operators.addEventListener('click', (e) => {
 });
 
 clear.addEventListener('click', (e) => {
-    fullClear();
-    display.textContent = '0';
+    clearEvent();
 });
 
 equals.addEventListener('click', (e) => {
@@ -167,4 +166,9 @@ function operatorEvent(operatorInput){
 
     if (result != 'Error') displayOperation();
     if (result == 'Error') fullClear();
+}
+
+function clearEvent(){
+    fullClear();
+    display.textContent = '0';
 }
