@@ -19,7 +19,7 @@ window.addEventListener('keydown', (e) => {
     if (digitArray.includes(element)) {
         console.log('digit key clicked!');
     }
-    else if (element == '.') console.log('decimal clicked');
+    else if (element == '.') decimalEvent();
     else if (operatorArray.includes(element)){
         console.log(element);
     }
@@ -33,13 +33,8 @@ digits.addEventListener('click', (e) => {
     digitEvent(element);
 });
 
-decimal.addEventListener('click', (e) => {    
-    if (num2.length !== 0 && !num2.includes('.'))
-        num2.push('.');
-    else if (num2.length === 0 && num1.length !==0 && !num1.includes('.'))
-        num1.push('.');
-
-    displayOperation();
+decimal.addEventListener('click', () => {    
+    decimalEvent();
 })
 
 operators.addEventListener('click', (e) => {
@@ -160,4 +155,13 @@ function digitEvent(element){
         else if (num2.length) num2.push(digitClicked);
         displayOperation();
     }
+}
+
+function decimalEvent(){
+    if (num2.length !== 0 && !num2.includes('.'))
+        num2.push('.');
+    else if (num2.length === 0 && num1.length !==0 && !num1.includes('.'))
+        num1.push('.');
+
+    displayOperation();
 }
