@@ -16,3 +16,5 @@ Things I've learned:
 - When you declare a variable within a specific scope, like an if statement, it cannot be read outside of that scope.
 
 - Use window.addEventListener to get keydown events
+
+- be careful using the same name between a global variable and a function parameter. The function will only keep changes to that variable within the function scope.
