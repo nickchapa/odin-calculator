@@ -16,9 +16,9 @@ window.addEventListener('keydown', (e) => {
     const digitArray = ['0','1', '2', '3', '4', '5', '6', '7', '8', '9'];
     const operatorArray = ['+', '-', '*', '/'];
 
-    if (digitArray.includes(element)) {
-        console.log('digit key clicked!');
-    }
+    console.log(element);
+
+    if (digitArray.includes(element)) digitEvent(element);
     else if (element == '.') decimalEvent();
     else if (operatorArray.includes(element)){
         console.log(element);
@@ -30,7 +30,9 @@ window.addEventListener('keydown', (e) => {
 
 digits.addEventListener('click', (e) => {
     const element = e.target.closest('.digit');
-    digitEvent(element);
+    let digitInput;
+    typeof element ? digitInput = element.textContent : digitInput = null;
+    digitEvent(digitInput);
 });
 
 decimal.addEventListener('click', () => {    
@@ -144,15 +146,14 @@ function displayOperation(){
     `;
 }
 
-function digitEvent(element){
-    let digitClicked;
-    element ? digitClicked = element.textContent : digitClicked = null;
+function digitEvent(digitInput){
+    console.log(typeof element);
 
-    if(digitClicked != null){
-        if (num1.length === 0) num1.push(digitClicked);
-        else if (num1.length && operator == null) num1.push(digitClicked);
-        else if (num2.length === 0) num2.push(digitClicked);
-        else if (num2.length) num2.push(digitClicked);
+    if(digitInput != null){
+        if (num1.length === 0) num1.push(digitInput);
+        else if (num1.length && operator == null) num1.push(digitInput);
+        else if (num2.length === 0) num2.push(digitInput);
+        else if (num2.length) num2.push(digitInput);
         displayOperation();
     }
 }
