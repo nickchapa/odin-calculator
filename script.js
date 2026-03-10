@@ -28,9 +28,9 @@ window.addEventListener('keydown', (e) => {
 
 digits.addEventListener('click', (e) => {
     const element = e.target.closest('.digit');
-    let digitInput;
-    typeof element ? digitInput = element.textContent : digitInput = null;
-    digitEvent(digitInput);
+    let digitClicked;
+    typeof element ? digitClicked = element.textContent : digitClicked = null;
+    digitEvent(digitClicked);
 });
 
 decimal.addEventListener('click', () => {    
