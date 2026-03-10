@@ -83,7 +83,7 @@ function operate(a, b, op){
     else if (op == '*') result = multiply(a, b);
     else if (op == '/') result = divide(a, b);
 
-    result = result.toFixed(2);
+    result == typeof Number? result.toFixed(2) : result;
     displayOperation();
     if(result === 'Error') num1 = [];
     else num1 = [result];
