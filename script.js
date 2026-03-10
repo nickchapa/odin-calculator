@@ -22,7 +22,7 @@ window.addEventListener('keydown', (e) => {
     else if (element == '.') decimalEvent();
     else if (operatorArray.includes(element)) operatorEvent(element);
     else if (element == 'c') clearEvent();
-    else if (element == '=') console.log(element);
+    else if (element == '=') equalsEvent();
     else if (element == 'Backspace') console.log(element); 
 })
 
@@ -50,8 +50,7 @@ clear.addEventListener('click', (e) => {
 });
 
 equals.addEventListener('click', (e) => {
-    operate(num1, num2, operator);
-    fullClear();
+    equalsEvent();
 })
 
 backspace.addEventListener('click', (e) => {
@@ -171,4 +170,9 @@ function operatorEvent(operatorInput){
 function clearEvent(){
     fullClear();
     display.textContent = '0';
+}
+
+function equalsEvent(){
+    operate(num1, num2, operator);
+    fullClear();
 }
