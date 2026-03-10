@@ -16,8 +16,6 @@ window.addEventListener('keydown', (e) => {
     const digitArray = ['0','1', '2', '3', '4', '5', '6', '7', '8', '9'];
     const operatorArray = ['+', '-', '*', '/'];
 
-    console.log(element);
-
     if (digitArray.includes(element)) digitEvent(element);
     else if (element == '.') decimalEvent();
     else if (operatorArray.includes(element)) operatorEvent(element);
@@ -110,8 +108,6 @@ function displayOperation(){
 }
 
 function digitEvent(digitInput){
-    console.log(typeof element);
-
     if(digitInput != null){
         if (num1.length === 0) num1.push(digitInput);
         else if (num1.length && operator == null) num1.push(digitInput);
