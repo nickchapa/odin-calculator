@@ -12,86 +12,48 @@ const equals = document.querySelector('#equals');
 const backspace = document.querySelector('#backspace');
 
 window.addEventListener('keydown', (e) => {
-    console.log(e.key);
+    const element = e.key;
+    const digitArray = ['0','1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    const operatorArray = ['+', '-', '*', '/'];
+
+    console.log(element);
+
+    if (digitArray.includes(element)) digitEvent(element);
+    else if (element == '.') decimalEvent();
+    else if (operatorArray.includes(element)) operatorEvent(element);
+    else if (element == 'c') clearEvent();
+    else if (element == '=') equalsEvent();
+    else if (element == 'Backspace') backspaceEvent();
 })
 
 digits.addEventListener('click', (e) => {
     const element = e.target.closest('.digit');
     let digitClicked;
-    element ? digitClicked = element.textContent : digitClicked = null;
-
-    if(digitClicked != null){
-        if (num1.length === 0) num1.push(digitClicked);
-        else if (num1.length && operator == null) num1.push(digitClicked);
-        else if (num2.length === 0) num2.push(digitClicked);
-        else if (num2.length) num2.push(digitClicked);
-        displayOperation();
-    }
+    typeof element ? digitClicked = element.textContent : digitClicked = null;
+    digitEvent(digitClicked);
 });
 
-decimal.addEventListener('click', (e) => {    
-    if (num2.length !== 0 && !num2.includes('.'))
-        num2.push('.');
-    else if (num2.length === 0 && num1.length !==0 && !num1.includes('.'))
-        num1.push('.');
-
-    displayOperation();
+decimal.addEventListener('click', () => {    
+    decimalEvent();
 })
 
 operators.addEventListener('click', (e) => {
     const element = e.target.closest('.operator');
     let operatorClicked;
     element ? operatorClicked = element.textContent : operatorClicked = null;
-
-    if (num1.length === 0) result = 'Error';
-    else if (
-        num1.length &&
-        num2.length &&
-        operator != null
-    ){
-        operate(num1, num2, operator);
-        if (result != 'Error') {
-                operator = operatorClicked;
-                result = null;
-        }
-    }
-    else if (num1.length) operator = operatorClicked;
-
-    if (result != 'Error') displayOperation();
-    if (result == 'Error') fullClear();
+    operatorEvent(operatorClicked);
 });
 
 clear.addEventListener('click', (e) => {
-    fullClear();
-    display.textContent = '0';
+    clearEvent();
 });
 
 equals.addEventListener('click', (e) => {
-    operate(num1, num2, operator);
-    fullClear();
+    equalsEvent();
 })
 
 backspace.addEventListener('click', (e) => {
-    if (
-        num1.length &&
-        operator != null &&
-        num2.length
-    ){
-        num2.pop();
-        displayOperation();
-    } else if (
-        num1.length &&
-        operator != null
-    ){
-        operator = null;
-        displayOperation();
-    } else if (
-        num1.length
-    ){
-        num1.pop();
-        displayOperation();
-    }
-    console.log(num1, num2, operator, result);
+    backspaceEvent();
 });
 
 function add(a, b){
@@ -143,4 +105,76 @@ function displayOperation(){
     ${num2.length ? num2.join("") : ""} = 
     ${result != null ? result : ""}
     `;
+}
+
+function digitEvent(digitInput){
+    console.log(typeof element);
+
+    if(digitInput != null){
+        if (num1.length === 0) num1.push(digitInput);
+        else if (num1.length && operator == null) num1.push(digitInput);
+        else if (num2.length === 0) num2.push(digitInput);
+        else if (num2.length) num2.push(digitInput);
+        displayOperation();
+    }
+}
+
+function decimalEvent(){
+    if (num2.length !== 0 && !num2.includes('.'))
+        num2.push('.');
+    else if (num2.length === 0 && num1.length !==0 && !num1.includes('.'))
+        num1.push('.');
+
+    displayOperation();
+}
+
+function operatorEvent(operatorInput){
+    if (num1.length === 0) result = 'Error';
+    else if (
+        num1.length &&
+        num2.length &&
+        operator != null
+    ){
+        operate(num1, num2, operator);
+        if (result != 'Error') {
+                operator = operatorInput;
+                result = null;
+        }
+    }
+    else if (num1.length) operator = operatorInput;
+
+    if (result != 'Error') displayOperation();
+    if (result == 'Error') fullClear();
+}
+
+function clearEvent(){
+    fullClear();
+    display.textContent = '0';
+}
+
+function equalsEvent(){
+    operate(num1, num2, operator);
+    fullClear();
+}
+
+function backspaceEvent(){
+    if (
+        num1.length &&
+        operator != null &&
+        num2.length
+    ){
+        num2.pop();
+        displayOperation();
+    } else if (
+        num1.length &&
+        operator != null
+    ){
+        operator = null;
+        displayOperation();
+    } else if (
+        num1.length
+    ){
+        num1.pop();
+        displayOperation();
+    }
 }
