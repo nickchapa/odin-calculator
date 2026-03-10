@@ -22,7 +22,7 @@ window.addEventListener('keydown', (e) => {
     else if (element == '.') decimalEvent();
     else if (operatorArray.includes(element)) operatorEvent(element);
     else if (element == 'c') clearEvent();
-    else if (element == '=') equalsEvent();
+    else if (element == '=' || element == 'Enter') equalsEvent();
     else if (element == 'Backspace') backspaceEvent();
 })
 
