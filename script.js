@@ -30,16 +30,7 @@ window.addEventListener('keydown', (e) => {
 
 digits.addEventListener('click', (e) => {
     const element = e.target.closest('.digit');
-    let digitClicked;
-    element ? digitClicked = element.textContent : digitClicked = null;
-
-    if(digitClicked != null){
-        if (num1.length === 0) num1.push(digitClicked);
-        else if (num1.length && operator == null) num1.push(digitClicked);
-        else if (num2.length === 0) num2.push(digitClicked);
-        else if (num2.length) num2.push(digitClicked);
-        displayOperation();
-    }
+    digitEvent(element);
 });
 
 decimal.addEventListener('click', (e) => {    
@@ -156,4 +147,17 @@ function displayOperation(){
     ${num2.length ? num2.join("") : ""} = 
     ${result != null ? result : ""}
     `;
+}
+
+function digitEvent(element){
+    let digitClicked;
+    element ? digitClicked = element.textContent : digitClicked = null;
+
+    if(digitClicked != null){
+        if (num1.length === 0) num1.push(digitClicked);
+        else if (num1.length && operator == null) num1.push(digitClicked);
+        else if (num2.length === 0) num2.push(digitClicked);
+        else if (num2.length) num2.push(digitClicked);
+        displayOperation();
+    }
 }
