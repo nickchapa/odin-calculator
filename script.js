@@ -27,7 +27,7 @@ window.addEventListener('keydown', (e) => {
 digits.addEventListener('click', (e) => {
     const element = e.target.closest('.digit');
     let digitClicked;
-    typeof element ? digitClicked = element.textContent : digitClicked = null;
+    element ? digitClicked = element.textContent : digitClicked = null;
     digitEvent(digitClicked);
 });
 
