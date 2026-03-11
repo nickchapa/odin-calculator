@@ -11,6 +11,8 @@ const clear = document.querySelector('#clear');
 const equals = document.querySelector('#equals');
 const backspace = document.querySelector('#backspace');
 
+document.addEventListener('click', (e) => document.activeElement.blur());
+
 window.addEventListener('keydown', (e) => {
     const element = e.key;
     const digitArray = ['0','1', '2', '3', '4', '5', '6', '7', '8', '9'];
