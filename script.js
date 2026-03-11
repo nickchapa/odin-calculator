@@ -14,16 +14,16 @@ const backspace = document.querySelector('#backspace');
 document.addEventListener('click', (e) => document.activeElement.blur());
 
 window.addEventListener('keydown', (e) => {
-    const element = e.key;
+    const key = e.key;
     const digitArray = ['0','1', '2', '3', '4', '5', '6', '7', '8', '9'];
     const operatorArray = ['+', '-', '*', '/'];
 
-    if (digitArray.includes(element)) digitEvent(element);
-    else if (element == '.') decimalEvent();
-    else if (operatorArray.includes(element)) operatorEvent(element);
-    else if (element == 'c') clearEvent();
-    else if (element == '=' || element == 'Enter') equalsEvent();
-    else if (element == 'Backspace') backspaceEvent();
+    if (digitArray.includes(key)) digitEvent(key);
+    else if (key == '.') decimalEvent();
+    else if (operatorArray.includes(key)) operatorEvent(key);
+    else if (key == 'c') clearEvent();
+    else if (key == '=' || key == 'Enter') equalsEvent();
+    else if (key == 'Backspace') backspaceEvent();
 })
 
 digits.addEventListener('click', (e) => {
