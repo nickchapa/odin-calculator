@@ -18,3 +18,7 @@ Things I've learned:
 - Use window.addEventListener to get keydown events
 
 - be careful using the same name between a global variable and a function parameter. The function will only keep changes to that variable within the function scope.
+
+- how to check if a number is a number: check if typeof value === 'number' && !Number.isNaN(value); Can create a function specifically for this.
+
+- you can stack ternary operators, but if statements seem to be more readable for multiple conditions and checks. Ternary operators seem to be better to condense a simple if-else statement into a single line
