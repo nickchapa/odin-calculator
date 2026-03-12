@@ -225,3 +225,7 @@ function daisuki(a, b){
         }
     }
 }
+
+function isNumber(value){
+    return typeof value === 'number' && !Number.isNaN(value);
+}
