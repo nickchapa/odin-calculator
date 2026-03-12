@@ -83,7 +83,9 @@ function operate(a, b, op){
     else if (op == '*') result = multiply(a, b);
     else if (op == '/') result = divide(a, b);
 
-    isNumber(result) ? result = result.toFixed(2) : result;
+    if (isNumber(result) && !Number.isInteger(result)){
+        result = result.toFixed(2);
+    }    
 
     if(!daisuki(a, b)) displayOperation();
 
